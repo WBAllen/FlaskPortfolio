@@ -61,3 +61,8 @@ def sendemail():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+
+# Good resource for deploying your Python App:
+# https://www.pythondanywhere.com/?affiliate_id=00535ced
+
