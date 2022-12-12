@@ -28,7 +28,7 @@ def sendemail():
         message = request.form['message']
 
         # ! Set your credentials (note: security here, do not upload your passwords to GitHub)
-        yourEmail = "jamflynt@gmail.com"
+        yourEmail = "EMAIL@Email.com"
         yourPassword = "###########"
         # Setting up an App Password with Gmail
         # use URL from google support, etc.
@@ -39,4 +39,25 @@ def sendemail():
         server.starttls()
         server.log(yourEmail, yourPassword)
 
-        
+        # Sender's and Receiver's email addresses
+        msg = EmailMessage()
+        msg.set_content("First Name: "+str(name)
+                        +"\nEmail: "+str(email)
+                        +"\nSubject: "+str(subject)
+                        +"\nMessage: "+str(message))
+        msg['To'] = yourEmail
+        msg['From'] = email
+        msg['Subject'] = subject
+
+        # Send the message via our own SMTP server
+        try:
+            # sending an email
+            server.send_message(msg)
+            print("Email sent successfully")
+        except:
+            print("Failed to send")
+            pass
+    return redirect('/')
+
+if __name__ == "__main__":
+    app.run(debug=True)
