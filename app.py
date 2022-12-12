@@ -33,4 +33,10 @@ def sendemail():
         # Setting up an App Password with Gmail
         # use URL from google support, etc.
 
+        # Logging into our email (GMAIL) account
+        server = smtplib.SMTP('smtp.gmail.com', 587)
+        server.ehlo()
+        server.starttls()
+        server.log(yourEmail, yourPassword)
+
         
